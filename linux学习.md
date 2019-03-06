@@ -2,9 +2,30 @@
 
 ## 文件和目录管理
 
+### 常用简单命令
+- 更换成root用户：`su`
+- 更换普通用户：`su - <username>`
+- 查看当前路径：`pwd`
+
+- 安装软件包：`./*.sh`
+- 到处跑：`cd`
+- 列出目录下文件及文件夹：`ls`、`ls -a`、`ls -al`
+- 新建文件夹：`mkdir <dirname>`
+- 删除**空文件夹**：`rmdir <dirname>`
+- 删除**非空文件夹**：`rm -r <dirname> `
+- 新建文件：`touch <filename>`，`vim <filename>`
+- 删除文件：`rm <filename>`
+- 文件重命名：`mv <filename1> <filename2>`
+- 文件（夹）移动：`mv <path/file(dir)name1>  path/file(dir)name2>`
+
+- 文件（夹）复制：`cp <path/file(dir)name1>  path/file(dir)name2>` 
+
+
+
 ### 权限
 
-> sudo chmod 777 -R XXX(文件或目录)
+**sudo chmod 777 -R XXX(文件或目录)**
+> 参考：[Linux vscode 无法保存　修改文件夹权限](https://www.jianshu.com/p/a72d2244785b)
 
 - sudo chmod 600 ××× （只有所有者有读和写的权限）
 - sudo chmod 644 ××× （所有者有读和写的权限，组用户只有读的权限）
