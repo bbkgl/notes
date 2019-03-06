@@ -1,14 +1,22 @@
 # Linux学习
 
-# **添加目录**
+> 积少成多
 
-## 文件和目录管理
+---
 
-### 常用简单命令
+## 目录
+
+  chapter1  |  chapter2  |   chapter3  |  chapter4
+:-:|:-:|:-:|:-:
+[常用简单命令](#simple)|[文件和目录管理](#file)|[进程和任务管理](#task)|[Git](#git)
+
+---
+
+## <span id = "simple">常用简单命令</span>
+
 - 更换成root用户：`su`
 - 更换普通用户：`su - <username>`
 - 查看当前路径：`pwd`
-
 - 安装软件包：`./*.sh`
 - 到处跑：`cd`
 - 列出目录下文件及文件夹：`ls`、`ls -a`、`ls -al`
@@ -19,10 +27,10 @@
 - 删除文件：`rm <filename>`
 - 文件重命名：`mv <filename1> <filename2>`
 - 文件（夹）移动：`mv <path/file(dir)name1>  path/file(dir)name2>`
-
 - 文件（夹）复制：`cp <path/file(dir)name1>  path/file(dir)name2>` 
+- 查看环境变量：`echo $PATH` （在不同用户下结果不一样）
 
-
+##  <span id = "file">文件和目录管理</span>
 
 ### 权限
 
@@ -37,9 +45,72 @@
 
 ｘｘｘ可以是文件名也可以是单个文件，中间加的　`-R` 是递归这个目录下的所有目录和文件。
 
+### 文件搜寻
+
+**whereis**
+`whereis [-bmsu] 文件或者目录名`
+- `-b`：搜寻二进制文件
+- `-m`：只找在说明档 manual 路径下的文件
+- `-s`：只找 source 来源文件
+- `-u`：搜寻不在上述三个项目当中的其他特殊文件
+
+**locate**
+`locate [-ir] keyword`
+- `-i`：忽略大小写的差异
+- `-r`：后面可接正规表示法的显示方式
+直接在后面输入『文件的部分名称』后，就能够得到结果，只要是相关的，都会列出来。
+
+**find**
+`find [PATH] [option] [action]`
+1. 与时间有关的选项
+    - `mtime  n` ：n 为数字，意义为在 n 天之前的『一天之内』被更动过内容的文件；
+    - `mtime +n` ：列出在 n 天之前(不含 n 天本身)被更动过内容的文件档名；
+    - `mtime -n` ：列出在 n 天之内(含 n 天本身)被更动过内容的文件档名。
+    - `newer file` ：file 为一个存在的文件，列出比 file 还要新的文件档名
+
+2. 与文件权限及名称相关的参数
+    - `name filename`：搜寻文件名称为 filename 的文件；
+
+    - `size [+-]SIZE`：搜寻比 SIZE 还要大(+)或小(-)的文件。这个 SIZE 的规格有：
+
+         c: 代表 byte， k: 代表 1024bytes。所以，要找比 50KB还要大的文件，就是『 -size +50k 』
+
+**whereis 和 find 的区别**
+- `whereis`快于`find`
+- `whereis`和`locate`从系统的数据库文件里搜寻，`find`直接搜索硬盘
+- `whereis`和`locate`有可能搜不到刚刚创建的文件或者搜到已经删除的文件
+- `whereis`和`locate`已创建的数据库`/var/lib/mlocate/`中搜索，数据库每天更新一次，手动更新命令`updatedb`
 
 
-## Git
+
+## <span id = "task">进程和任务管理</span>
+
+### 查看进程ps
+
+- `ps a `：查看当前环境中所有的进程，显示shell前台运行命令的进程，但不包括shell本身
+- `ps u`：显示进程的用户信息
+- `ps -A`：显示当前运行的进程，不显示已经结束的
+- `ps x`：显示所有进程，比ps -A显示的更详细
+- `ps l `：长列表显示进程的详细信息
+- `ps f `：显示进程的从属关系
+- `ps ax -o `：为指定显示进程相关信息，如`ps ax -o -%cpu，+%mem，user，group，comm，nice，pid，stat`，`+-`表示正序和倒序
+
+### 结束进程kill
+
+`kill -9 5489`：意为强行结束相应pid（5489）的进程 。以下为各数字表示的意义： 
+
+- 1：让进程重新加载配置
+- 2：删除进程载内存中的数据
+- 3：删除鼠标在内存中的数据
+- 9：强行结束单个进程(不能被阻塞）
+- 15：正常关闭进程
+- 18：运行暂停的进程
+- 19：暂停某个进程
+- 20：把进程打入后台
+
+
+
+## <span id = "git">Git</span>
 
 > 参考：[git - 简易指南](http://www.bootcss.com/p/git-guide/)
 
