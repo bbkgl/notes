@@ -8,11 +8,11 @@
 
   chapter1  |  chapter2  |   chapter3  |  chapter4
 :-:|:-:|:-:|:-:
-[愉快使用linux](#happy linux)|[文件和目录管理](#file)|[进程和任务管理](#task)|[Git](#git)
+[愉快使用linux](#happy_linux)|[文件和目录管理](#file)|[进程和任务管理](#task)|[Git](#git)
 
 ---
 
-## <span id = "happy linux"> 愉快使用linux</span>
+## <span id = "happy_linux"> 愉快使用linux</span>
 
 ### 常用简单命令
 
