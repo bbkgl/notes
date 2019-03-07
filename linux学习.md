@@ -8,11 +8,13 @@
 
   chapter1  |  chapter2  |   chapter3  |  chapter4
 :-:|:-:|:-:|:-:
-[常用简单命令](#simple)|[文件和目录管理](#file)|[进程和任务管理](#task)|[Git](#git)
+[愉快使用linux](#happy linux)|[文件和目录管理](#file)|[进程和任务管理](#task)|[Git](#git)
 
 ---
 
-## <span id = "simple">常用简单命令</span>
+## <span id = "happy linux"> 愉快使用linux</span>
+
+### 常用简单命令
 
 - 更换成root用户：`su`
 - 更换普通用户：`su - <username>`
@@ -30,6 +32,42 @@
 - 文件（夹）复制：`cp <path/file(dir)name1>  path/file(dir)name2>` 
 - 查看环境变量：`echo $PATH` （在不同用户下结果不一样）
 
+
+
+### 截图快捷键
+
+> 参考：[百度经验](https://jingyan.baidu.com/article/bea41d43be1afab4c51be61d.html)
+
+- 整个屏幕截图：`PrintScreen`（在键盘的上方，“F12”右边）
+- 活动窗口截图：`Alt + PrintScreen`
+- 截取选定区域：`shift+PrintScreen`，鼠标会变成“十”字的形状，点击截取的起点，拖动鼠标设定范围后，截图就被保存了。
+
+
+
+### 安装字体
+
+1. 将字体文件复制（移动）到`/usr/share/fonts/`下
+   - `cp <path> /usr/share/fonts`
+2. 在终端依次执行如下命令：
+
+- `sudo mkfontscale`
+- `sudo mkfontdir`
+- `sudo fc-cache -fv` 
+
+3. 新的字体安装完成
+
+
+
+### Clion修改菜单栏（界面）字体
+
+settings-->appearance-->（勾选）override default fonts(not recommended)-->选择字体
+
+如下图：
+
+![1551927862367](assets/1551927862367.png)
+
+
+
 ##  <span id = "file">文件和目录管理</span>
 
 ### 权限
@@ -44,6 +82,8 @@
 - sudo chmod 777 ××× （每个人都有读和写以及执行的权限）
 
 ｘｘｘ可以是文件名也可以是单个文件，中间加的　`-R` 是递归这个目录下的所有目录和文件。
+
+
 
 ### 文件搜寻
 
