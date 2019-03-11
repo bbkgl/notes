@@ -154,6 +154,11 @@ settings-->appearance-->（勾选）override default fonts(not recommended)-->�
 
 > 参考：[git - 简易指南](http://www.bootcss.com/p/git-guide/)
 
+**图解**：
+
+![img](assets/20170703094821967.jpeg)
+
+
 **创建新仓库**
 
 1. 创建新文件夹
