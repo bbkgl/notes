@@ -85,6 +85,19 @@ settings-->appearance-->（勾选）override default fonts(not recommended)-->�
 
 
 
+### 替换目录下所有文件的字符串
+
+> 参考：[linux替换目录下所有文件中的某字符串](https://www.cnblogs.com/hutudan/p/5778778.html)
+
+比如，要将目录`/modules`下面所有文件中的`zhangsan`都修改成`lisi`，这样做：
+> `sed -i "s/zhangsan/lisi/g" `grep zhangsan -rl /modules``
+
+其中：
+- `-i` 表示`inplace edit`，就地修改文件
+- `-r` 表示搜索子目录
+- `-l` 表示输出匹配的文件名
+
+
 ### 文件搜寻
 
 **whereis**
