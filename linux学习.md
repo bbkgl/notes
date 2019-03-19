@@ -31,6 +31,7 @@
 - 文件（夹）移动：`mv <path/file(dir)name1>  path/file(dir)name2>`
 - 文件（夹）复制：`cp <path/file(dir)name1>  path/file(dir)name2>` 
 - 查看环境变量：`echo $PATH` （在不同用户下结果不一样）
+- 查看端口占用：`netstat -tunlp | grep <端口号>`
 
 
 
@@ -65,6 +66,12 @@ settings-->appearance-->（勾选）override default fonts(not recommended)-->�
 如下图：
 
 ![1551927862367](assets/1551927862367.png)
+
+
+
+### CLion搜索整个项目
+
+快捷键：Ctrl+H
 
 
 
