@@ -31,7 +31,7 @@
 - 文件（夹）移动：`mv <path/file(dir)name1>  path/file(dir)name2>`
 - 文件（夹）复制：`cp <path/file(dir)name1>  path/file(dir)name2>` 
 - 查看环境变量：`echo $PATH` （在不同用户下结果不一样）
-- 查看端口占用：`netstat -tunlp | grep <端口号>`
+- 查看端口占用：`netstat -apn | grep <端口号>`
 
 
 
@@ -167,6 +167,20 @@ settings-->appearance-->（勾选）override default fonts(not recommended)-->�
 - 18：运行暂停的进程
 - 19：暂停某个进程
 - 20：把进程打入后台
+
+### netstat查看端口占用和通信状态
+
+natstat -<a/n/e/p/t/u/x> | grep <端口号>
+
+- -a 显示所有状态的socket 
+- -n 不做名字解析，不加此参数，80端口会显示成http,127.0.0.1显示成localhost,uid为0显示成root等等 
+- -e 显示更多信息如用户，inode 
+- -p 显示pid和程序名字 
+- -t 显示tcp链接 
+- -u 显示udp链接 
+- -x 显示unix套接字
+
+常用：`netstat -apn | grep <端口号>`
 
 
 
