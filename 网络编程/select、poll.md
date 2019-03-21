@@ -1,4 +1,4 @@
-# IO多路转接–select
+# IO多路转接–select、poll
 
 ## select函数介绍
 
@@ -79,8 +79,8 @@ int select(int nfds,
   - 跨平台
 - 缺点：
   - 每次调用select，都需要把fd集合从用户态拷贝到内核态，这个开销在fd数量大时会很大；
-
-## select函数是如何工作的
+  - 每次遍历线性寻找有活动IO的流（套接字、标志位），这个开销在fd数量大时会很大；
+  - select支持的文件描述符数量太小了，默认是1024；
 
 假设客户端A、B、C、D、E、F连接到服务器，分别对用文件描述符3,4,100,100,102,103。
 
@@ -109,7 +109,7 @@ int nums = select(103 + 1, &reads, NULL, NULL, NULL);
 
 内核会把reads表拷贝到内核态，然后根据标志位的值去找对应的文件描述符，检测缓冲区是否有数据，如果有数据，将标志位设为1，如果没有数据，将标志位设为0，最后返回表中活动I/O的个数。
 
-## select多路转接伪代码
+### select多路转接伪代码
 
 ```cpp
 int main() {
@@ -234,4 +234,36 @@ int main() {
     return 0;
 }
 ```
+
+## poll函数介绍
+
+### poll结构体：
+
+```cpp
+struct pollfd {
+    int fd;             // 文件描述符
+    short events;       // 等待的事件，一般来说只用三个：POLLIN（读事件）、POLLout（写事件）、POLLERR（错误事件）
+    short revents;      // 实际发生的事件
+}
+```
+
+### 函数原型：
+
+```cpp
+int poll(struct pollfd *fd, nfds_t nfds, int timeout);
+```
+
+**参数说明：**
+
+- pollfd：数组的地址；
+- nfds：数组的最大长度，数组中最后一个使用的元素下标+1；
+
+  - 内核会轮询检测fd数组的每个文件描述符；
+
+- timeout：
+
+  - -1：永久阻塞；
+  - 0：调用完成立即返回；
+  - `>0`；等待的时长ms；
+- 返回值：IO发生变化的文件描述符的个数。
 
