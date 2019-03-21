@@ -71,10 +71,10 @@ int main() {
                 int len = recv(fd, buff, sizeof(buff), 0);
                 if (len == 0) {
                     close(fd);
+                    printf("There is a client(ip: %s port: %d) closed!\n",
+                           inet_ntoa(client_map[fd].addr.sin_addr), ntohs(client_map[fd].addr.sin_port));
                     client_map.erase(fd);
                     epoll_ctl(epfd, EPOLL_CTL_DEL, fd, NULL);
-                    printf("There is a client(ip: %s port: %d) closed!\n",
-                            inet_ntoa(client_map[fd].addr.sin_addr), ntohs(client_map[fd].addr.sin_port));
                 } else if (len == -1) {
                     std::cerr << "Read error!\n";
                     exit(1);
