@@ -73,6 +73,23 @@ settings-->appearance-->（勾选）override default fonts(not recommended)-->�
 
 快捷键：Ctrl+H
 
+### CLion支持多线程
+
+如果使用CLion的话，多线程可能会报错，就是`pthread_create()`和`pthread_detach()`引用错误。
+
+就算是C++的thread类，也可能会报错。
+
+**解决办法**
+
+在CMakeLists.txt文件后面加入这两句，
+
+```
+find_package(Threads REQUIRED)
+target_link_libraries(项目名称 Threads::Threads)
+```
+
+**然后项目名称改成自己的项目名称！**
+
 
 
 ##  <span id = "file">文件和目录管理</span>
