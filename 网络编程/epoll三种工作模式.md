@@ -96,3 +96,5 @@ if (len == 0) {
 
 **[实现代码1](epoll边沿非阻塞触发/epoll_et_nonblock1.cpp)**
 
+**[实现代码2](epoll边沿非阻塞触发/epoll_et_nonblock2.cpp)**
+
