@@ -82,13 +82,14 @@ int main() {
                     std::cerr << "Read error!\n";
                     exit(1);
                 } else if (len == 0) {  // 如果是客户端关闭了连接
-                    close(fd);
                     // 将要断开的连接从树上删除
                     epoll_ctl(epfd, EPOLL_CTL_DEL, fd, NULL);
                     // 打印客户端断开连接的消息，加上该客户端的ip和端口
                     printf("There is a client(ip: %s port: %d) closed!\n", inet_ntoa(client_map[fd].addr.sin_addr),ntohs(client_map[fd].addr.sin_port));
                     // 从map中删除
                     client_map.erase(fd);
+                    // close在关节点之后
+                    close(fd);
                 } else { // 如果是正常消息
                     // 打印消息，并表明是那个客户端（ip和端口）
                     printf("A new message from client(ip: %s port: %d): %s\n", inet_ntoa(client_map[fd].addr.sin_addr),ntohs(client_map[fd].addr.sin_port), buff);
@@ -105,3 +106,9 @@ int main() {
 ```
 
 [查看具体实现代码！](epoll服务器实现/epoll.cpp)
+
+**2019.3.22更新**
+
+可以直接在epoll_event结构体的data成员结构体的中用`void *ptr`指针指向结构体！
+
+上述实现也可以达到同样目的，但更推荐刚刚更新的的做法！

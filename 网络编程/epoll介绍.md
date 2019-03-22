@@ -134,9 +134,10 @@ int main() {
                 // 读数据
                 int len = recv();
                 if (len == 0) {
-                    close(fd);
                     // 检测的fd从树上删除
                     epoll_ctl(epfd, EPOLL_CTL_DEL, fd, NULL);
+                    // clsoe()一定要在摘结点之后
+                     close(fd);
                 }
                 // 写数据
                 send();
