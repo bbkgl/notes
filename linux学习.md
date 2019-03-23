@@ -90,6 +90,22 @@ target_link_libraries(项目名称 Threads::Threads)
 
 **然后项目名称改成自己的项目名称！**
 
+### github加快下载速度
+
+> 参考：[github下载慢，轻松提速教程](https://blog.csdn.net/weixin_37910453/article/details/86655613)
+
+1. 打开hosts文件并修改：`sudo vim /etc/hosts`
+
+2. 在最后插入以下ip映射：
+
+   ```
+   192.30.253.113  github.com
+   151.101.25.194 github.global.ssl.fastly.net
+   192.30.253.121 codeload.github.com
+   ```
+
+3. 重启网络服务:`sudo /etc/init.d/networking restart`
+
 
 
 ##  <span id = "file">文件和目录管理</span>
