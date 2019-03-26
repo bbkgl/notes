@@ -6,6 +6,8 @@
 >
 > 参考：[现代C++的回调技术--使用std::bind和std::function](https://blog.csdn.net/will_free/article/details/61622122)
 
+在不继承的情况下，在类A中运行类B的成员函数。
+
 ## 类A
 
 类A中可以运行B的成员函数
