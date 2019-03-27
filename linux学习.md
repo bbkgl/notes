@@ -106,6 +106,12 @@ target_link_libraries(项目名称 Threads::Threads)
 
 3. 重启网络服务:`sudo /etc/init.d/networking restart`
 
+### 复制文件夹时提示cp-略过目录
+
+因为是目录，所以得递归地将目录下文件全部复制过去。
+
+修改命令为`cp -r <源目录> <目标目录>`
+
 
 
 ##  <span id = "file">文件和目录管理</span>
