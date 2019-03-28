@@ -112,7 +112,19 @@ target_link_libraries(项目名称 Threads::Threads)
 
 修改命令为`cp -r <源目录> <目标目录>`
 
+### Git取消关注某个文件/文件夹
 
+> 参考：[git取消跟踪文件目录](https://blog.csdn.net/sun2009_/article/details/70198580)
+
+1. `git rm -r -n --cached <文件/文件夹>`
+   - 只是列出想要跟踪的文件夹和文件，并不会真的删除文件或取消缓存
+
+2. `git rm -r -cached <文件/文件夹>`
+   - 取消缓存不想要跟踪的文件/文件夹
+
+3. 在项目当前文件夹中新建`.gitignore`文件（`vi .gitignore`），添加文件或者文件夹名称
+4. `git commit -m “sth”`
+5. `git push origin master`
 
 ##  <span id = "file">文件和目录管理</span>
 
