@@ -6,9 +6,9 @@
 
 ## 目录
 
-  chapter1  |  chapter2  |   chapter3  |  chapter4
-:-:|:-:|:-:|:-:
-[愉快使用linux](#happy_linux)|[文件和目录管理](#file)|[进程和任务管理](#task)|[Git](#git)
+  chapter1  |  chapter2  |   chapter3  |  chapter4  |  chapter5  
+:-:|:-:|:-:|:-:|:-:
+[愉快使用linux](#happy_linux)|[文件和目录管理](#file)|[进程和任务管理](#task)|[Git](#git)|[CMake](#cmake) 
 
 ---
 
@@ -309,3 +309,8 @@ natstat -<a/n/e/p/t/u/x> | grep <端口号>
 - 假如你想要丢弃本地的改动与提交，可以到服务器上获取最新的版本并将并将你本地分支指向它：
     - `git fetch origin`
     - `git reset --hard origin/master` 
+
+## <span id = "cmake">CMake</span>
+
+> 参考：[CMake 入门实战](https://www.hahack.com/codes/cmake/)
+
