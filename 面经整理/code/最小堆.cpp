@@ -12,10 +12,12 @@ using namespace std;
 
 class MinHeap {
 public:
+    // 构造最小堆
     MinHeap();
     explicit MinHeap(int size);
     explicit MinHeap(vector<int> _heap);
 
+    // 往堆中插入元素
     int Insert(int x);
 
     void Show() {
@@ -26,8 +28,9 @@ public:
 
 private:
 
+    // 建堆
     void Create();
-
+    // 向下调整，符合最小堆
     void SiftDown(int);
 
     vector<int> heap;
