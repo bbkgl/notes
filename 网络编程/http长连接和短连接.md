@@ -41,6 +41,9 @@ int optval = 1;
 setsockopt(sockfd_, SOL_SOCKET, SO_KEEPALIVE, &optval, static_cast<socklen_t>(sizeof optval));
 ```
 
+2019年05月08日16:06更新：
+keep-alive可以修改超时探测的时间间隔，具体见[Keep-alive详解](https://www.cnblogs.com/havenshen/p/3850167.html)。
+
 ### 应用层心跳
 
-这个不知道怎么写了。
+这个不知道怎么写了，各大服务器都实现了，供用户去设置。
