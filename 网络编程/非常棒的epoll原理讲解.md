@@ -1,6 +1,8 @@
 # epoll原理
 
 > 参考[epoll原理](https://www.cnblogs.com/pluser/p/epoll_principles.html)
+>
+> 参考[epoll内核原理极简图文解读](https://blog.csdn.net/linkedin_38454662/article/details/73337208 )
 
 ## 解释
 
